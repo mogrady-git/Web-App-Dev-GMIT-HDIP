@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game 1-30</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exercise Week 6 – JavaScript</h1>
+        <h3>Using functions in JavaScript </h3>
+        <p>Decisions and Loops in JavaScript</p>
+        <p>Guessing Game 1-30</p>
+        <hr>
+    </div>
+    <div class="project-container">
+        <button onclick="randomGenerator();" class="btn btn-success">Generate Random Number (1-30)</button>
+        <p id="number"></p>
+        <button onclick="guessNumber();" class="btn btn-success">Ok this time you have 6 chances to try and Guess the Number! (1-30)</button>
+        <p id="result">
+        </p>
+    </div>
+
+
+
+
+</body>
+<script>
+    // Generate Random Number between 1 and 30
+    function randomGenerator() {
+        var num = Math.random() * 30;
+        var number = document.getElementById("number").innerHTML = Math.ceil(num);
+        // for (var i = 0; i <= 30; i++) {
+        //     console.log(i);
+        // }
+
+        console.log("Random Number is " + number);
+        return (number);
+    };
+
+    function guessNumber() {
+
+        var num = Math.random() * 30;
+        var number = Math.ceil(num);
+
+        console.log(number);
+        for (var i = 0; i <= 6; i++) {
+            var numIn = Number(prompt("Please Enter a Number"));
+            if (numIn === number) {
+                alert("Good Guess!");
+                console.log("Correct");
+                document.getElementById("result").innerHTML = "Good Guess!"
+                return (number)
+            } else {
+                alert("Incorrect");
+                console.log("Incorrect");
+                document.getElementById("result").innerHTML = "Sorry, wrong number. The number was " + number
+            };
+        }
+        alert("Sorry, wrong number. The number was " + number);
+    }
+</script>
+
+
+</html>

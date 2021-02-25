@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exercise Week 6 – JavaScript</h1>
+        <h3>Using functions in JavaScript </h3>
+        <p>Decisions and Loops in JavaScript</p>
+        <hr>
+    </div>
+    <div class="project-container">
+        <button onclick="randomGenerator();" class="btn btn-success">Generate Random Number (1-10)</button>
+        <p id="number"></p>
+        <button onclick="guessNumber();" class="btn btn-success">Ok this time, Try to Guess the Number! (1-10)</button>
+        <p id="result">
+        </p>
+    </div>
+
+
+
+
+</body>
+<script>
+    function randomGenerator() {
+        var num = Math.random() * 10;
+        var number = document.getElementById("number").innerHTML = Math.ceil(num);
+        console.log("Random Number is " + number);
+        return (number);
+    };
+
+    function guessNumber() {
+
+        var num = Math.random() * 10;
+        var number = Math.ceil(num);
+
+        console.log(number);
+        // document.getElementById("result").innerHTML = ("The Number Was:" + number)
+
+        var numIn = Number(prompt("Please Enter a Number"));
+
+
+        if (numIn === number) {
+            console.log("Correct");
+            document.getElementById("result").innerHTML = "Good Guess!"
+        } else {
+            console.log("Incorrect")
+            document.getElementById("result").innerHTML = "Sorry, wrong number"
+        };
+    }
+</script>
+
+
+</html>

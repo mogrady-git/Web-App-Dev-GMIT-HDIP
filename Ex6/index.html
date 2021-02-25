@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Week 6 JavaScript </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Part 1 and 2-->
+    <!-- <button onclick="myFunction();">Click to Activate Function</button> -->
+    <!-- End Part 1 and 2 -->
+    <div class="container">
+        <h1>Exercise Week 6 – JavaScript</h1>
+        <h3>Using functions in JavaScript </h3>
+        <p>Input and output in JavaScript </p>
+        <hr>
+    </div>
+    <div class="project-container">
+
+        <button onclick="enterName();" class="btn btn-success">Enter Name</button>
+        <p id="inner-text"></p>
+        <button onclick="generateGreeting();" class="btn btn-success">Generate Greeting!</button>
+
+
+    </div>
+
+</body>
+<!-- Part 1 and 2 -->
+<!-- <script>
+    function myFunction() {
+        alert("Hello, this alert is from a function");
+    }
+    myFunction();
+</script> -->
+<!-- Part 1 and 2-->
+
+<script>
+    function enterName() {
+        var myInput = prompt("Enter your Name");
+        console.log(myInput);
+        document.getElementById("inner-text").innerHTML = myInput;
+
+    };
+
+    function generateGreeting() {
+        // var name = document.getElementById("inner-text").innerHTML;
+        // alert("Hello " + name);
+
+        // var name = document.getElementById("inner-text").innerHTML;
+        // alert("Hello " + name);
+
+        if (document.getElementById("inner-text").innerHTML === "") {
+            console.log("Enter a Name First!");
+            alert("Enter a Name First!")
+        } else {
+
+            var name = document.getElementById("inner-text").innerHTML;
+            console.log("Hello " + name);
+            alert("Hello " + name);
+        }
+    }
+</script>
+
+</html>
