@@ -50,9 +50,11 @@
 
 
         if (numIn === number) {
+            alert("Good Guess!")
             console.log("Correct");
             document.getElementById("result").innerHTML = "Good Guess!"
         } else {
+            alert("Sorry, wrong number. The number was " + number);
             console.log("Incorrect")
             document.getElementById("result").innerHTML = "Sorry, wrong number"
         };
