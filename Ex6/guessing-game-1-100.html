@@ -63,14 +63,14 @@
                 // document.getElementById("result").innerHTML = "Sorry, wrong number. The number was " + number
 
                 if (numIn > number) {
-                    alert("Guess too high");
+                    alert("Guess too high, " + (6 - i) + " attempts left...");
                     console.log("Guess too high");
                     document.getElementById("result").innerHTML = "Guess too high"
 
 
                 } else {
                     if (numIn < number) {
-                        alert("Guess too low");
+                        alert("Guess too low, " + (6 - i) + " attempts left...");
                         console.log("Guess too low");
                         document.getElementById("result").innerHTML = "Guess too low";
 
