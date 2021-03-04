@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Week 6 JavaScript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exercise Week 7 – JavaScript</h1>
+        <h3>Using the DOM</h3>
+        <p>Functions in in JavaScript</p>
+        <hr>
+    </div>
+    <!-- Exercise 1 -->
+    <div class="project-container">
+        <h1 id="heading">This is JavaScript</h1>
+        <button onclick="changeText()" class="btn btn-success">Change Text</button>
+    </div>
+    <!-- End Exercise 1 -->
+    <hr>
+    <!-- Exercise 2 -->
+    <div class="project-container">
+        <h1>Basic Calculator</h1>
+        <div class="row"> <input type="number" id="input1"><input type="number" id="input2"></div>
+        <br>
+        <button class="btn btn-success" onclick="sum()">Add</button>
+        <br>
+        <p id="result1"></p>
+    </div>
+    <!-- End Exercise 2 -->
+    <!-- Exercise 3 -->
+    <hr>
+    <div class="project-container">
+        <h1>Calculator</h1>
+        <div class="row"> <input type="number" id="input3"><input type="number" id="input4"></div>
+        <br>
+        <p id="result2"></p>
+        <button class="btn btn-success" onclick="add()">Add</button>
+        <button class="btn btn-warning" onclick="subtract()">Subtract</button>
+        <button class="btn btn-info" onclick="multiply()">Multiply</button>
+        <button class="btn btn-danger" onclick="divide()">Divide</button>
+
+    </div>
+    <!-- End Exercise 3 -->
+    <!-- Exercise 5 -->
+    <hr>
+    <div class="project-container">
+        <h4>CSS Manipulation in the DOM with JS</h4>
+        <p>So you want hints, eh?!</p>
+        <button onclick="guessNumber();" class="btn btn-success">Ok this time you have 6 chances to try to Guess the Number and this time, we'll give you hints! (1-100)</button>
+        <p id="result"></p>
+        <img src="img/sad.png" alt="sad" style="display: none;" id="sad">
+        <img src="img/happy.png" alt="happy" style="display: none;" id="happy">
+    </div>
+    <!-- End Exercise 5 -->
+    <!-- Exercise 6 - Changing Styles with the DOM -->
+    <hr>
+    <div class="project-container">
+        <h1>Changing styles with the DOM</h1>
+        <h2 id="changeText">Change this text!!!</h2>
+        <button class="btn btn-success" onclick="fcol()">Change Font Color</button>
+        <button class="btn btn-info" onclick="fsize()">Change Font Size</button>
+        <button class="btn btn-warning" onclick="fstyle()">Change Font Style</button>
+    </div>
+    <!-- End Exercise 6 - Changing Styles with the DOM -->
+
+</body>
+
+<script>
+    // Exercise 1
+    function changeText() {
+        document.getElementById("heading").innerHTML = "This is DOM Manipulation";
+    }
+    // End Exercise 1
+    // Exercise 2
+    function sum() {
+        var num1 = Number(document.getElementById("input1").value);
+        var num2 = Number(document.getElementById("input2").value);
+        var add = num1 + num2;
+        document.getElementById("result1").innerHTML = add;
+
+    }
+    // End Exercise 2
+    // Exercise 3
+    function add() {
+        var num1 = Number(document.getElementById("input3").value);
+        var num2 = Number(document.getElementById("input4").value);
+        var add = num1 + num2;
+        document.getElementById("result2").innerHTML = add;
+    };
+
+    function subtract() {
+        var num1 = Number(document.getElementById("input3").value);
+        var num2 = Number(document.getElementById("input4").value);
+        var subtract = num1 - num2;
+        document.getElementById("result2").innerHTML = subtract;
+    };
+
+    function multiply() {
+        var num1 = Number(document.getElementById("input3").value);
+        var num2 = Number(document.getElementById("input4").value);
+        var multiply = num1 * num2;
+        document.getElementById("result2").innerHTML = multiply;
+    };
+
+    function divide() {
+        var num1 = Number(document.getElementById("input3").value);
+        var num2 = Number(document.getElementById("input4").value);
+        var divide = num1 / num2;
+        document.getElementById("result2").innerHTML = divide;
+    }
+    // End Exercise 3
+    // Exercise 5
+    function guessNumber() {
+
+        var num = Math.random() * 100;
+        var number = Math.ceil(num);
+        document.getElementById("happy").style.display = "none";
+        document.getElementById("happy").style.display = "none";
+
+        console.log(number);
+        for (var i = 0; i <= 6; i++) {
+            var numIn = Number(prompt("Please Enter a Number"));
+            if (numIn === number) {
+                alert("Well Done! You Got it!")
+                console.log("Correct");
+                document.getElementById("result").innerHTML = "Good Guess!";
+                document.getElementById("sad").style.display = "none";
+                document.getElementById("happy").style.display = "block";
+                return (number)
+            } else {
+                // console.log("Incorrect")
+                // document.getElementById("result").innerHTML = "Sorry, wrong number. The number was " + number
+
+                if (numIn > number) {
+                    alert("Guess too high, " + (6 - i) + " attempts left...");
+                    console.log("Guess too high");
+                    document.getElementById("result").innerHTML = "Guess too high"
+                } else {
+                    if (numIn < number) {
+                        alert("Guess too low, " + (6 - i) + " attempts left...");
+                        console.log("Guess too low");
+                        document.getElementById("result").innerHTML = "Guess too low";
+                        document.getElementById("sad").style.display = "block";
+                        document.getElementById("happy").style.display = "none";
+
+                    }
+                }
+            };
+        }
+        alert("The Number was " + number);
+    }
+    // End Exercise 5
+    // Exercise 6
+    function fcol() {
+        document.getElementById("changeText").style.color = "red";
+        console.log("Changed Color!");
+    }
+
+    function fsize() {
+        document.getElementById("changeText").style.fontStyle = "italic";
+        console.log("Changed Size!");
+    }
+
+    function fstyle() {
+        document.getElementById("changeText").style.fontSize = "9px";
+        console.log("Changed Style!");
+    }
+
+
+
+    // End Exercise 6
+</script>
+
+</html>

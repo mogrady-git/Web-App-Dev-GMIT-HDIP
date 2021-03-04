@@ -24,8 +24,9 @@
         <p id="number"></p>
         <p>So you want hints, eh?!</p>
         <button onclick="guessNumber();" class="btn btn-success">Ok this time you have 6 chances to try to Guess the Number and this time, we'll give you hints! (1-100)</button>
-        <p id="result">
-        </p>
+        <p id="result"></p>
+        <img src="img/sad.png" alt="sad" style="display: none;" id="sad">
+        <img src="img/happy.png" alt="happy" style="display: none;" id="happy">
     </div>
 
 
@@ -49,6 +50,8 @@
 
         var num = Math.random() * 100;
         var number = Math.ceil(num);
+        document.getElementById("happy").style.display = "none";
+        document.getElementById("happy").style.display = "none";
 
         console.log(number);
         for (var i = 0; i <= 6; i++) {
@@ -56,7 +59,9 @@
             if (numIn === number) {
                 alert("Well Done! You Got it!")
                 console.log("Correct");
-                document.getElementById("result").innerHTML = "Good Guess!"
+                document.getElementById("result").innerHTML = "Good Guess!";
+                document.getElementById("sad").style.display = "none";
+                document.getElementById("happy").style.display = "block";
                 return (number)
             } else {
                 // console.log("Incorrect")
@@ -66,19 +71,19 @@
                     alert("Guess too high, " + (6 - i) + " attempts left...");
                     console.log("Guess too high");
                     document.getElementById("result").innerHTML = "Guess too high"
-
-
                 } else {
                     if (numIn < number) {
                         alert("Guess too low, " + (6 - i) + " attempts left...");
                         console.log("Guess too low");
                         document.getElementById("result").innerHTML = "Guess too low";
+                        document.getElementById("sad").style.display = "block";
+                        document.getElementById("happy").style.display = "none";
 
                     }
                 }
             };
         }
-        alert("The Number was " + number)
+        alert("The Number was " + number);
     }
 </script>
 

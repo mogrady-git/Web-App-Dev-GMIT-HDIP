@@ -32,8 +32,13 @@ button {
     max-width: 50vw;
 }
 
-p {
-    padding-top: 1rem;
+input {
+    margin-right: 12px;
+}
+
+button {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 img {
